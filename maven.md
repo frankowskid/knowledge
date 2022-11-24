@@ -34,3 +34,8 @@ mvn versions:property-updates-report
 ##Nexus manual deploy 
 
 mvn deploy:deploy-file -Dfile=./infonav2.war -DrepositoryId=xxx-releases  -DgroupId=com.xxx.x -DartifactId=xxx -Dversion=6.2.6 -Dpackaging=war -Durl=<url> -e -X
+ 
+## RUn mvn plugin without beeing in pom.xml
+mvn clean verify org.jacoco:jacoco-maven-plugin:0.8.8:report
+
+mvn -Dmodernizer.javaVersion=17 clean compile test-compile org.gaul:modernizer-maven-plugin:2.4.0:modernizer
