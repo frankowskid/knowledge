@@ -28,3 +28,11 @@ git push --delete origin tagname
 ####Local:
 
 git tag --delete tagname
+
+
+Refresh branches from remote
+git remote prune origin
+
+####Update repository with(it automatically prunes all stale references)
+
+git fetch -p
