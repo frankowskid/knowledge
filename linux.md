@@ -37,4 +37,5 @@ Threads per process CPU usage
 ps -T -p <pid>
  
 Check connection when no wget nor curl available
+ 
 timeout 10s bash -c ':> /dev/tcp/destimantion-url/8061'
