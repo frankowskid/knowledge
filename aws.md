@@ -9,3 +9,11 @@ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS
   	else \
 		echo "Your AWS session is valid."; \
 	fi
+
+
+aws ssm start-session --target <TARGET>
+	
+ aws ssm start-session \
+  --target <TARGET> \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters '{"host":["<HOSTNAME>"],"portNumber":["3306"], "localPortNumber":["3307"]}'
