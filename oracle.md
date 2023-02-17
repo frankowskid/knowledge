@@ -1,21 +1,21 @@
-##Active queries:
-
+## Active queries:
+```sql
 select sql_id from gv$session where username='INFAPPUSR' and status='ACTIVE';
-
+```
  
 
  
 
-##SQL Plans:
-
+## SQL Plans:
+```sql
 select * from table(dbms_xplan.display_awr('SQL_ID','PLAN_HASH_VALUE'));
-
+```
  
-
+```sql
 SELECT  * FROM table(DBMS_XPLAN.DISPLAY_CURSOR(SQL_ID=>'$SQL_ID', *FORMAT=>'all'));
-
+```
  
-
+```
 select s.sql_id, s.plan_hash_value,s.SQL_PROFILE,s.FIRST_LOAD_TIME,s.EXECUTIONS, s.*, s.SQL_PROFILE from v$sqlarea s where 1=1
 
 and s.PARSING_SCHEMA_NAME = 'INFAPP'
@@ -23,9 +23,9 @@ and s.PARSING_SCHEMA_NAME = 'INFAPP'
 --sql_id = :1
 
 and s.sql_fulltext like '%'
-
+```
  
-
+```sql
 SELECT plan_hash_value,
 
        elapsed_time_total,executions_total
@@ -37,21 +37,22 @@ WHERE sql_id = TRIM(:1)
    AND executions_total > 0
 
    order by plan_hash_value;
-
+```
  
 
-
+```sql
 select * from table(dbms_xplan.display_awr(:1));
-
- 
+```
+``sql
 select * from dba_hist_sql_plan where sql_id = :1 order by timestamp desc;
-
+```
+```sql
 select * from dba_hist_sqlstat where sql_id = :1 order by rows_processed_total desc, elapsed_time_total, snap_id desc;
-
+```
  
 
 
-
+```sql
 WITH
 
 p AS (
@@ -119,21 +120,23 @@ WHERE p.plan_hash_value = m.plan_hash_value(+)
 ORDER BY
 
        avg_et_secs NULLS LAST;
-
+```
  
 
-##Locks check 
-
+## Locks check 
+```sql
 select * from v$lock;
-
+```
  
-
+```sql
 select * from v$locked_object;
+```
 
+```sql
 select * from gv$session where sid = '2627';
-
+```
  
-
+```sql
 select
 
 c.owner,
@@ -157,10 +160,10 @@ from dba_objects c, v$locked_object a, v$session b
 where b.sid = a.session_id
 
 and a.object_id = c.object_id;
-
+```
  
-##Index check
-
+## Index check
+```sql
 Select owner,index_name,status
 
 from
@@ -176,11 +179,11 @@ Select index_owner,index_name,status from dba_ind_subpartitions
 )
 
 Where status not in('VALID','N/A','USABLE');
-
+```
  
 
-#UUID
-
+# UUID
+```sql
 select regexp_replace(rawtohex(sys_guid())
 
                      , '([A-F0-9]{8})([A-F0-9]{4})([A-F0-9]{4})([A-F0-9]{4})([A-F0-9]{12})'
@@ -190,3 +193,4 @@ select regexp_replace(rawtohex(sys_guid())
                      as FORMATTED_GUID
 
           from dual;
+```
