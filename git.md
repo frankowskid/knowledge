@@ -1,38 +1,33 @@
-#GIT:
+# GIT:
 
  
 
-##Rename branch:
+## Rename branch:
 
- 
-
-###Local:
+### Local:
 
 git checkout old-branch
 
 git branch –m new-name
 
 
-###Remote:
+### Remote:
 
 git push origin :old-name new-name
 
  
-
- 
-
-###Delete tag:
+### Delete tag:
 
 git push --delete origin tagname
 
-####Local:
+#### Local:
 
 git tag --delete tagname
 
 
-Refresh branches from remote
+## Refresh branches from remote
 git remote prune origin
 
-####Update repository with(it automatically prunes all stale references)
+#### Update repository with(it automatically prunes all stale references)
 
 git fetch -p
