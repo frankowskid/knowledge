@@ -6,23 +6,23 @@ du -sh *
 
  
 
-##Process on ports:
+## Process on ports:
 
 netstat -a -n -o
 
  
 
-##Check if open port:
+## Check if open port:
 
 nc -vz qcmailhost.testbbh.com 25
 
-###Check connection when no wget nor curl available
+### Check connection when no wget nor curl available
  
 timeout 10s bash -c ':> /dev/tcp/destimantion-url/8061'
 
  
 
-##Threads per process:
+## Threads per process:
 
 ps huH p <PID_OF_U_PROCESS> | wc -l
 
@@ -34,7 +34,7 @@ watch ps -o thcount <pid>
 
  
 
-##Threads per process CPU usage
+## Threads per process CPU usage
 
 ps -T -p <pid>
  
