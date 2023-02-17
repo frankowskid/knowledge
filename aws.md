@@ -14,8 +14,9 @@ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS
 ```
 
 ### Session Manager session
-
+````shell
 aws ssm start-session --target <TARGET>
+```
 
 ### Port forward with SSM
 ```shell	
