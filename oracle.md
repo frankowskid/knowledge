@@ -15,7 +15,7 @@ select * from table(dbms_xplan.display_awr('SQL_ID','PLAN_HASH_VALUE'));
 SELECT  * FROM table(DBMS_XPLAN.DISPLAY_CURSOR(SQL_ID=>'$SQL_ID', *FORMAT=>'all'));
 ```
  
-```
+```sql
 select s.sql_id, s.plan_hash_value,s.SQL_PROFILE,s.FIRST_LOAD_TIME,s.EXECUTIONS, s.*, s.SQL_PROFILE from v$sqlarea s where 1=1
 
 and s.PARSING_SCHEMA_NAME = 'INFAPP'
@@ -43,7 +43,7 @@ WHERE sql_id = TRIM(:1)
 ```sql
 select * from table(dbms_xplan.display_awr(:1));
 ```
-``sql
+```sql
 select * from dba_hist_sql_plan where sql_id = :1 order by timestamp desc;
 ```
 ```sql
