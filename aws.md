@@ -25,6 +25,13 @@ aws ssm start-session --target <TARGET>
   --document-name AWS-StartPortForwardingSessionToRemoteHost \
   --parameters '{"host":["<HOSTNAME>"],"portNumber":["3306"], "localPortNumber":["3307"]}'
 ```
+
+```
+aws ssm start-session \
+  --target `aws ec2 describe-instances --filters 'Name=tag:Name,Values=<INSTANCE_NAME>' --output text --query 'Reservations[*].Instances[*].InstanceId' --region ap-northeast-1` \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters '{"host":[???"],"portNumber":["3306"], "localPortNumber":["3307"]}'
+```
 	
 ### K8s config
 ```shell
