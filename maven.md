@@ -21,6 +21,8 @@ mvn versions:display-dependency-updates
 
 mvn versions:display-plugin-updates
 
+mvn versions:display-property-updates
+
 mvn versions:use-latest-versions
 
 mvn versions:dependency-updates-report
