@@ -40,4 +40,4 @@ mvn deploy:deploy-file -Dfile=./app.war -DrepositoryId=xxx-releases  -DgroupId=c
 ## Run mvn plugins without being in pom.xml
 mvn clean verify org.jacoco:jacoco-maven-plugin:0.8.8:report
 
-mvn -Dmodernizer.javaVersion=17 clean compile test-compile org.gaul:modernizer-maven-plugin:2.5.0:modernizer
+mvn -Dmodernizer.javaVersion=17 clean compile test-compile org.gaul:modernizer-maven-plugin:2.6.0:modernizer
