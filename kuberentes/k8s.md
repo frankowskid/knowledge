@@ -11,3 +11,12 @@ Where namespace is namespace where pod is running, pod is pod name you want to d
 kubectl debug -n <test-ns> -it <pod-name> 
   --image=ecr:jdk-zulu-openjdk --target=<??>
  ```
+
+  
+### Thread dump
+```
+  kubectl exec -it <POD> -- sh
+for proc in /proc/*/cmdline; do echo $(basename $(dirname $proc)) $(cat $proc | tr "\0" " "); done
+kill -3 1
+kubectl logs -f <POD>
+```
