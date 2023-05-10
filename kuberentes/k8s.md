@@ -15,7 +15,7 @@ kubectl debug -n <test-ns> -it <pod-name>
   
 ### Thread dump
 ```
-  kubectl exec -it <POD> -- sh
+kubectl exec -it <POD> -- sh
 for proc in /proc/*/cmdline; do echo $(basename $(dirname $proc)) $(cat $proc | tr "\0" " "); done
 kill -3 1
 kubectl logs -f <POD>
