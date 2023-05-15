@@ -18,7 +18,7 @@ nc -vz qcmailhost.testbbh.com 25
 
 ### Check connection when no wget nor curl available
  
-timeout 10s bash -c ':> /dev/tcp/destimantion-url/8061'
+```timeout 10s bash -c ':> /dev/tcp/destimantion-url/8061'```
 
  
 
