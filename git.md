@@ -31,3 +31,7 @@ git remote prune origin
 #### Update repository with(it automatically prunes all stale references)
 
 git fetch -p
+
+or
+
+git remote update origin --prune
