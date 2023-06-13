@@ -17,7 +17,7 @@ Java-docs issue:
 
  
 
-mvn versions:display-dependency-updates
+mvn versions:display-dependency-updates (mvn org.codehaus.mojo:versions-maven-plugin:2.16.0:display-dependency-updates -DallowMajorUpdates=false)
 
 mvn versions:display-plugin-updates
 
