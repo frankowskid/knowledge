@@ -37,3 +37,16 @@ aws ssm start-session \
 ```shell
 aws eks --region us-east-1 update-kubeconfig --name <NAME>
 ```
+
+### All active ingress
+```
+(echo "URL SERVICE NAMESPACE INGRESS_NAME" &&            
+kubectl get --all-namespaces ingress -o json 2> /dev/null | jq -r '
+           .items[] | 
+                   .metadata.name as $name | 
+                   .metadata.namespace as $namespace | 
+                   .spec.rules[]? | 
+                   .host as $host | 
+                   .http.paths[] | 
+                   "https://\($host)\(.path) \(.backend.service.name) \($namespace) \($name)"' | sort ) | column -t
+```
