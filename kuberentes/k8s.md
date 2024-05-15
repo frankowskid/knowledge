@@ -20,3 +20,8 @@ for proc in /proc/*/cmdline; do echo $(basename $(dirname $proc)) $(cat $proc | 
 kill -3 1
 kubectl logs -f <POD>
 ```
+
+### Copy file from POD
+
+kubectl exec <<deployment/service-name>> --namespace <service-namespace> --  tar cf - /app/profiler-output/$1 | tar x --to-stdout > `echo $1 | tr : _`
+
