@@ -23,5 +23,6 @@ kubectl logs -f <POD>
 
 ### Copy file from POD
 
+```
 kubectl exec <<deployment/service-name>> --namespace <service-namespace> --  tar cf - /app/profiler-output/$1 | tar x --to-stdout > `echo $1 | tr : _`
-
+```
