@@ -14,7 +14,7 @@ netstat -a -n -o
 
 ## Check if open port:
 
-nc -vz qcmailhost.testbbh.com 25
+nc -vz qcmailhost.test.com 25
 
 ### Check connection when no wget nor curl available
  
